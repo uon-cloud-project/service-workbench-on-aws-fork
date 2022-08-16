@@ -15,7 +15,7 @@
 const _ = require('lodash');
 
 function isRole(requestContext, roleName) {
-  return _.get(requestContext, 'principal.userRole') === roleName;
+  return _.get(requestContext, 'principal.userRole').startsWith(roleName);
 }
 
 function isExternalGuest(requestContext) {
