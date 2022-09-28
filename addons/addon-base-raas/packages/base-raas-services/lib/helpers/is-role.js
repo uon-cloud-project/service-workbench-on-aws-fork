@@ -15,6 +15,9 @@
 const _ = require('lodash');
 
 function isRole(requestContext, roleName) {
+  if (typeof roleName === 'undefined'){
+    return _.get(requestContext, 'principal.userRole') === roleName;
+  }
   return _.get(requestContext, 'principal.userRole').startsWith(roleName);
 }
 
