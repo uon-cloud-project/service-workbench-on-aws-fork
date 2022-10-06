@@ -281,17 +281,17 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [],
-              },
-            },
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [],
+          //     },
+          //   },
+          // },
         ],
       };
       const IamUpdateParams = {
@@ -310,23 +310,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [studyPrefix],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: [`${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [studyPrefix],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: [`${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -364,23 +364,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': ['AnotherStudyPrefixForThisBucket'],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: ['AnotherStudyBucketPath'],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': ['AnotherStudyPrefixForThisBucket'],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: ['AnotherStudyBucketPath'],
+          // },
         ],
       };
       const IamUpdateParams = {
@@ -399,23 +399,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -453,23 +453,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [studyPrefix],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: [`${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [studyPrefix],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: [`${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       const IamUpdateParams = {
@@ -488,17 +488,17 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [],
-              },
-            },
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [],
+          //     },
+          //   },
+          // },
         ],
       };
       service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -536,23 +536,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       const IamUpdateParams = {
@@ -571,23 +571,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': ['AnotherStudyPrefixForThisBucket'],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: ['AnotherStudyBucketPath'],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': ['AnotherStudyPrefixForThisBucket'],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: ['AnotherStudyBucketPath'],
+          // },
         ],
       };
       service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -626,23 +626,23 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [studyPrefix],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: [`${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [studyPrefix],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: [`${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       const IamUpdateParams = {
@@ -661,30 +661,30 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [studyPrefix],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadWriteAccess',
-            Effect: 'Allow',
-            Action: [
-              's3:GetObject',
-              's3:AbortMultipartUpload',
-              's3:ListMultipartUploadParts',
-              's3:PutObject',
-              's3:PutObjectAcl',
-              's3:DeleteObject',
-            ],
-            Resource: [`${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [studyPrefix],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadWriteAccess',
+          //   Effect: 'Allow',
+          //   Action: [
+          //     's3:GetObject',
+          //     's3:AbortMultipartUpload',
+          //     's3:ListMultipartUploadParts',
+          //     's3:PutObject',
+          //     's3:PutObjectAcl',
+          //     's3:DeleteObject',
+          //   ],
+          //   Resource: [`${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -723,36 +723,36 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [studyPrefix, 'StudyPrefix_ABC', 'StudyPrefix_XYZ'],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: ['StudyBucketPath_ABC', `${studyBucket}/${studyPrefix}`],
-          },
-          {
-            Sid: 'S3StudyReadWriteAccess',
-            Effect: 'Allow',
-            Action: [
-              's3:GetObject',
-              's3:AbortMultipartUpload',
-              's3:ListMultipartUploadParts',
-              's3:PutObject',
-              's3:PutObjectAcl',
-              's3:DeleteObject',
-            ],
-            Resource: ['StudyBucketPath_XYZ'],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [studyPrefix, 'StudyPrefix_ABC', 'StudyPrefix_XYZ'],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: ['StudyBucketPath_ABC', `${studyBucket}/${studyPrefix}`],
+          // },
+          // {
+          //   Sid: 'S3StudyReadWriteAccess',
+          //   Effect: 'Allow',
+          //   Action: [
+          //     's3:GetObject',
+          //     's3:AbortMultipartUpload',
+          //     's3:ListMultipartUploadParts',
+          //     's3:PutObject',
+          //     's3:PutObjectAcl',
+          //     's3:DeleteObject',
+          //   ],
+          //   Resource: ['StudyBucketPath_XYZ'],
+          // },
         ],
       };
       const IamUpdateParams = {
@@ -771,36 +771,36 @@ describe('EnvironmentMountService', () => {
             Effect: 'Allow',
             Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
           },
-          {
-            Sid: 'studyListS3AccessN',
-            Effect: 'Allow',
-            Action: 's3:ListBucket',
-            Resource: studyBucket,
-            Condition: {
-              StringLike: {
-                's3:prefix': [studyPrefix, 'StudyPrefix_ABC', 'StudyPrefix_XYZ'],
-              },
-            },
-          },
-          {
-            Sid: 'S3StudyReadAccess',
-            Effect: 'Allow',
-            Action: ['s3:GetObject'],
-            Resource: ['StudyBucketPath_ABC'],
-          },
-          {
-            Sid: 'S3StudyReadWriteAccess',
-            Effect: 'Allow',
-            Action: [
-              's3:GetObject',
-              's3:AbortMultipartUpload',
-              's3:ListMultipartUploadParts',
-              's3:PutObject',
-              's3:PutObjectAcl',
-              's3:DeleteObject',
-            ],
-            Resource: ['StudyBucketPath_XYZ', `${studyBucket}/${studyPrefix}`],
-          },
+          // {
+          //   Sid: 'studyListS3AccessN',
+          //   Effect: 'Allow',
+          //   Action: 's3:ListBucket',
+          //   Resource: studyBucket,
+          //   Condition: {
+          //     StringLike: {
+          //       's3:prefix': [studyPrefix, 'StudyPrefix_ABC', 'StudyPrefix_XYZ'],
+          //     },
+          //   },
+          // },
+          // {
+          //   Sid: 'S3StudyReadAccess',
+          //   Effect: 'Allow',
+          //   Action: ['s3:GetObject'],
+          //   Resource: ['StudyBucketPath_ABC'],
+          // },
+          // {
+          //   Sid: 'S3StudyReadWriteAccess',
+          //   Effect: 'Allow',
+          //   Action: [
+          //     's3:GetObject',
+          //     's3:AbortMultipartUpload',
+          //     's3:ListMultipartUploadParts',
+          //     's3:PutObject',
+          //     's3:PutObjectAcl',
+          //     's3:DeleteObject',
+          //   ],
+          //   Resource: ['StudyBucketPath_XYZ', `${studyBucket}/${studyPrefix}`],
+          // },
         ],
       };
       service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -840,23 +840,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -875,23 +875,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -930,30 +930,30 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadWriteAccess',
-          Effect: 'Allow',
-          Action: [
-            's3:GetObject',
-            's3:AbortMultipartUpload',
-            's3:ListMultipartUploadParts',
-            's3:PutObject',
-            's3:PutObjectAcl',
-            's3:DeleteObject',
-          ],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadWriteAccess',
+        //   Effect: 'Allow',
+        //   Action: [
+        //     's3:GetObject',
+        //     's3:AbortMultipartUpload',
+        //     's3:ListMultipartUploadParts',
+        //     's3:PutObject',
+        //     's3:PutObjectAcl',
+        //     's3:DeleteObject',
+        //   ],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -972,36 +972,36 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadWriteAccess',
-          Effect: 'Allow',
-          Action: [
-            's3:GetObject',
-            's3:AbortMultipartUpload',
-            's3:ListMultipartUploadParts',
-            's3:PutObject',
-            's3:PutObjectAcl',
-            's3:DeleteObject',
-          ],
-          Resource: ['AnotherStudyBucketPath'],
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: [`${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadWriteAccess',
+        //   Effect: 'Allow',
+        //   Action: [
+        //     's3:GetObject',
+        //     's3:AbortMultipartUpload',
+        //     's3:ListMultipartUploadParts',
+        //     's3:PutObject',
+        //     's3:PutObjectAcl',
+        //     's3:DeleteObject',
+        //   ],
+        //   Resource: ['AnotherStudyBucketPath'],
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: [`${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -1043,23 +1043,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -1078,36 +1078,36 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath'],
-        },
-        {
-          Sid: 'S3StudyReadWriteAccess',
-          Effect: 'Allow',
-          Action: [
-            's3:GetObject',
-            's3:AbortMultipartUpload',
-            's3:ListMultipartUploadParts',
-            's3:PutObject',
-            's3:PutObjectAcl',
-            's3:DeleteObject',
-          ],
-          Resource: [`${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath'],
+        // },
+        // {
+        //   Sid: 'S3StudyReadWriteAccess',
+        //   Effect: 'Allow',
+        //   Action: [
+        //     's3:GetObject',
+        //     's3:AbortMultipartUpload',
+        //     's3:ListMultipartUploadParts',
+        //     's3:PutObject',
+        //     's3:PutObjectAcl',
+        //     's3:DeleteObject',
+        //   ],
+        //   Resource: [`${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -1148,23 +1148,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -1183,23 +1183,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -1237,23 +1237,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -1272,36 +1272,36 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath'],
-        },
-        {
-          Sid: 'S3StudyReadWriteAccess',
-          Effect: 'Allow',
-          Action: [
-            's3:GetObject',
-            's3:AbortMultipartUpload',
-            's3:ListMultipartUploadParts',
-            's3:PutObject',
-            's3:PutObjectAcl',
-            's3:DeleteObject',
-          ],
-          Resource: [`${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath'],
+        // },
+        // {
+        //   Sid: 'S3StudyReadWriteAccess',
+        //   Effect: 'Allow',
+        //   Action: [
+        //     's3:GetObject',
+        //     's3:AbortMultipartUpload',
+        //     's3:ListMultipartUploadParts',
+        //     's3:PutObject',
+        //     's3:PutObjectAcl',
+        //     's3:DeleteObject',
+        //   ],
+        //   Resource: [`${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -1343,36 +1343,36 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadWriteAccess',
-          Effect: 'Allow',
-          Action: [
-            's3:GetObject',
-            's3:AbortMultipartUpload',
-            's3:ListMultipartUploadParts',
-            's3:PutObject',
-            's3:PutObjectAcl',
-            's3:DeleteObject',
-          ],
-          Resource: [`${studyBucket}/${studyPrefix}`],
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath'],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadWriteAccess',
+        //   Effect: 'Allow',
+        //   Action: [
+        //     's3:GetObject',
+        //     's3:AbortMultipartUpload',
+        //     's3:ListMultipartUploadParts',
+        //     's3:PutObject',
+        //     's3:PutObjectAcl',
+        //     's3:DeleteObject',
+        //   ],
+        //   Resource: [`${studyBucket}/${studyPrefix}`],
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath'],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -1391,23 +1391,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);
@@ -1446,23 +1446,23 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath', `${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     const IamUpdateParams = {
@@ -1481,36 +1481,36 @@ describe('EnvironmentMountService', () => {
           Effect: 'Allow',
           Resource: 'arn:aws:kms:region:xxxxxxxx:key/someRandomString',
         },
-        {
-          Sid: 'studyListS3AccessN',
-          Effect: 'Allow',
-          Action: 's3:ListBucket',
-          Resource: studyBucket,
-          Condition: {
-            StringLike: {
-              's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
-            },
-          },
-        },
-        {
-          Sid: 'S3StudyReadAccess',
-          Effect: 'Allow',
-          Action: ['s3:GetObject'],
-          Resource: ['AnotherStudyBucketPath'],
-        },
-        {
-          Sid: 'S3StudyReadWriteAccess',
-          Effect: 'Allow',
-          Action: [
-            's3:GetObject',
-            's3:AbortMultipartUpload',
-            's3:ListMultipartUploadParts',
-            's3:PutObject',
-            's3:PutObjectAcl',
-            's3:DeleteObject',
-          ],
-          Resource: [`${studyBucket}/${studyPrefix}`],
-        },
+        // {
+        //   Sid: 'studyListS3AccessN',
+        //   Effect: 'Allow',
+        //   Action: 's3:ListBucket',
+        //   Resource: studyBucket,
+        //   Condition: {
+        //     StringLike: {
+        //       's3:prefix': ['AnotherStudyPrefixForThisBucket', studyPrefix],
+        //     },
+        //   },
+        // },
+        // {
+        //   Sid: 'S3StudyReadAccess',
+        //   Effect: 'Allow',
+        //   Action: ['s3:GetObject'],
+        //   Resource: ['AnotherStudyBucketPath'],
+        // },
+        // {
+        //   Sid: 'S3StudyReadWriteAccess',
+        //   Effect: 'Allow',
+        //   Action: [
+        //     's3:GetObject',
+        //     's3:AbortMultipartUpload',
+        //     's3:ListMultipartUploadParts',
+        //     's3:PutObject',
+        //     's3:PutObjectAcl',
+        //     's3:DeleteObject',
+        //   ],
+        //   Resource: [`${studyBucket}/${studyPrefix}`],
+        // },
       ],
     };
     service._getIamUpdateParams = jest.fn().mockResolvedValue(IamUpdateParams);

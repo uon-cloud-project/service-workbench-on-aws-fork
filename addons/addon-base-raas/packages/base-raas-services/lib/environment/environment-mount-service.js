@@ -21,7 +21,7 @@ const { hasAccess, accessLevels, isOpenData } = require('../study/helpers/entiti
 
 const settingKeys = {
   environmentInstanceFiles: 'environmentInstanceFiles',
-  studyDataBucketName: 'studyDataBucketName',
+  // studyDataBucketName: 'studyDataBucketName',
   studyDataKmsKeyAlias: 'studyDataKmsKeyAlias',
   studyDataKmsKeyArn: 'studyDataKmsKeyArn',
   studyDataKmsPolicyWorkspaceSid: 'studyDataKmsPolicyWorkspaceSid',
@@ -147,7 +147,7 @@ class EnvironmentMountService extends Service {
     }
 
     // Get S3 and KMS resource names
-    const s3BucketName = this.settings.get(settingKeys.studyDataBucketName);
+    // const s3BucketName = this.settings.get(settingKeys.studyDataBucketName);
     let kmsKeyAlias = this.settings.get(settingKeys.studyDataKmsKeyAlias);
     if (!kmsKeyAlias.startsWith('alias/')) {
       kmsKeyAlias = `alias/${kmsKeyAlias}`;
@@ -155,58 +155,58 @@ class EnvironmentMountService extends Service {
 
     // Setup services and SDK clients
     const [aws, lockService] = await this.service(['aws', 'lockService']);
-    const s3Client = new aws.sdk.S3();
+    // const s3Client = new aws.sdk.S3();
     const kmsClient = new aws.sdk.KMS();
 
     // Perform locked updates to prevent inconsistencies from race conditions
-    const s3LockKey = `s3|bucket-policy|${s3BucketName}`;
+    // const s3LockKey = `s3|bucket-policy|${s3BucketName}`;
     const kmsLockKey = `kms|key-policy|${kmsKeyAlias}`;
     await Promise.all([
       // Update S3 bucket policy
-      lockService.tryWriteLockAndRun({ id: s3LockKey }, async () => {
-        // Get existing policy
-        const s3Policy = JSON.parse((await s3Client.getBucketPolicy({ Bucket: s3BucketName }).promise()).Policy);
+      // lockService.tryWriteLockAndRun({ id: s3LockKey }, async () => {
+      //   // Get existing policy
+      //   const s3Policy = JSON.parse((await s3Client.getBucketPolicy({ Bucket: s3BucketName }).promise()).Policy);
 
-        // Get statements for listing and reading study data, respectively
-        const statements = s3Policy.Statement;
-        s3Prefixes.forEach(prefix => {
-          const allStatements = this.getAllStatements(s3BucketName, prefix);
-          let [listStatement, getStatement, putStatement] = allStatements;
-          const listSid = `List:${prefix}`;
-          const getSid = `Get:${prefix}`;
-          const putSid = `Put:${prefix}`;
+      //   // Get statements for listing and reading study data, respectively
+      //   const statements = s3Policy.Statement;
+      //   s3Prefixes.forEach(prefix => {
+      //     const allStatements = this.getAllStatements(s3BucketName, prefix);
+      //     let [listStatement, getStatement, putStatement] = allStatements;
+      //     const listSid = `List:${prefix}`;
+      //     const getSid = `Get:${prefix}`;
+      //     const putSid = `Put:${prefix}`;
 
-          // Pull out existing statements if available
-          statements.forEach(statement => {
-            if (statement.Sid === listSid) {
-              listStatement = statement;
-            } else if (statement.Sid === getSid) {
-              getStatement = statement;
-            } else if (statement.Sid === putSid) {
-              putStatement = statement;
-            }
-          });
+      //     // Pull out existing statements if available
+      //     statements.forEach(statement => {
+      //       if (statement.Sid === listSid) {
+      //         listStatement = statement;
+      //       } else if (statement.Sid === getSid) {
+      //         getStatement = statement;
+      //       } else if (statement.Sid === putSid) {
+      //         putStatement = statement;
+      //       }
+      //     });
 
-          // Update statement and policy
-          // NOTE: The S3 API *should* remove duplicate principals, if any
-          listStatement.Principal.AWS = updateAwsPrincipals(listStatement.Principal.AWS, workspaceRoleArn);
-          getStatement.Principal.AWS = updateAwsPrincipals(getStatement.Principal.AWS, workspaceRoleArn);
-          putStatement.Principal.AWS = updateAwsPrincipals(putStatement.Principal.AWS, workspaceRoleArn);
+      //     // Update statement and policy
+      //     // NOTE: The S3 API *should* remove duplicate principals, if any
+      //     listStatement.Principal.AWS = updateAwsPrincipals(listStatement.Principal.AWS, workspaceRoleArn);
+      //     getStatement.Principal.AWS = updateAwsPrincipals(getStatement.Principal.AWS, workspaceRoleArn);
+      //     putStatement.Principal.AWS = updateAwsPrincipals(putStatement.Principal.AWS, workspaceRoleArn);
 
-          s3Policy.Statement = s3Policy.Statement.filter(
-            statement => ![listSid, getSid, putSid].includes(statement.Sid),
-          );
-          allStatements.forEach(statement => {
-            // Only add updated statement if it contains principals (otherwise leave it out)
-            if (statement.Principal.AWS.length > 0) {
-              s3Policy.Statement.push(statement);
-            }
-          });
-        });
+      //     s3Policy.Statement = s3Policy.Statement.filter(
+      //       statement => ![listSid, getSid, putSid].includes(statement.Sid),
+      //     );
+      //     allStatements.forEach(statement => {
+      //       // Only add updated statement if it contains principals (otherwise leave it out)
+      //       if (statement.Principal.AWS.length > 0) {
+      //         s3Policy.Statement.push(statement);
+      //       }
+      //     });
+      //   });
 
-        // Update policy
-        await s3Client.putBucketPolicy({ Bucket: s3BucketName, Policy: JSON.stringify(s3Policy) }).promise();
-      }),
+      //   // Update policy
+      //   await s3Client.putBucketPolicy({ Bucket: s3BucketName, Policy: JSON.stringify(s3Policy) }).promise();
+      // }),
 
       // Update KMS key policy
       lockService.tryWriteLockAndRun({ id: kmsLockKey }, async () => {
