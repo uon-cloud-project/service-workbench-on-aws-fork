@@ -18,7 +18,6 @@ const Service = require('@aws-ee/base-services-container/lib/service');
 
 const settingKeys = {
   environmentsBootstrapBucketName: 'environmentsBootstrapBucketName',
-  studyDataBucketName: 'studyDataBucketName',
   deploymentBucketName: 'deploymentBucketName',
 };
 
@@ -37,10 +36,9 @@ class EditS3BucketPolicyService extends Service {
 
   async execute() {
     const environmentsBootstrapBucketName = this.settings.get(settingKeys.environmentsBootstrapBucketName);
-    const studyDataBucketName = this.settings.get(settingKeys.studyDataBucketName);
     const deploymentBucketName = this.settings.get(settingKeys.deploymentBucketName);
 
-    const dynamicBucketNames = [environmentsBootstrapBucketName, studyDataBucketName, deploymentBucketName];
+    const dynamicBucketNames = [environmentsBootstrapBucketName, deploymentBucketName];
 
     await Promise.all(
       dynamicBucketNames.map(async bucket => {

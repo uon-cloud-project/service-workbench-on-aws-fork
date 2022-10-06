@@ -52,9 +52,6 @@ describe('EditS3BucketPolicyService', () => {
       if (key === 'environmentsBootstrapBucketName') {
         return 'environmentsBootstrapBucketName';
       }
-      if (key === 'studyDataBucketName') {
-        return 'studyDataBucketName';
-      }
       if (key === 'deploymentBucketName') {
         return 'deploymentBucketName';
       }
