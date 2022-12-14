@@ -2,9 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## Beta
-[This release is in beta. Click here to see changes since 5.2.0.](https://github.com/awslabs/service-workbench-on-aws/compare/v5.2.0...mainline)
+### [5.2.5](https://github.com/awslabs/service-workbench-on-aws/compare/v5.2.4...v5.2.5) (2022-12-09)
 
+
+### Bug Fixes
+
+* Sagemaker compatability fix with AL2. Fix issue in which Sagemaker instances running on AL2 could not mount dataset and autostop ([#1079](https://github.com/awslabs/service-workbench-on-aws/issues/1079)) ([dea1c89](https://github.com/awslabs/service-workbench-on-aws/commit/dea1c8963860829a5a637756626af901b926b72a))
+
+### [5.2.4](https://github.com/awslabs/service-workbench-on-aws/compare/v5.2.3...v5.2.4) (2022-12-07)
+
+
+### Features
+
+* Add integration tests for users and user-roles controllers ([#1057](https://github.com/awslabs/service-workbench-on-aws/issues/1057)) ([5e9e813](https://github.com/awslabs/service-workbench-on-aws/commit/5e9e81306db7c2da220b2f04007b884e0dbdcde3))
+
+
+### Bug Fixes
+
+* fix input validation and escape html on popups ([#1075](https://github.com/awslabs/service-workbench-on-aws/issues/1075)) ([bbe1e20](https://github.com/awslabs/service-workbench-on-aws/commit/bbe1e2067c9297dc5f288307bd48ec8170fe8304))
+* minimatch alert ([#1058](https://github.com/awslabs/service-workbench-on-aws/issues/1058)) ([3eb90c9](https://github.com/awslabs/service-workbench-on-aws/commit/3eb90c950be3521c5c4ca5b3f82e8a40ac1c7edf))
+
+### [5.2.3](https://github.com/awslabs/service-workbench-on-aws/compare/v5.2.2...v5.2.3) (2022-10-12)
+
+
+### Bug Fixes
+
+* upgrade lambda nodejs to 16x and Serverless Framework to v3([#1047](https://github.com/awslabs/service-workbench-on-aws/pull/1047))([a0c7eee](https://github.com/awslabs/service-workbench-on-aws/commit/a0c7eeed34eea02ec56f49411cf499d1c59f0d3a))
+* tre egress store data updated S3 return ([#1054](https://github.com/awslabs/service-workbench-on-aws/issues/1054)) ([a80aa7e](https://github.com/awslabs/service-workbench-on-aws/commit/a80aa7eac48ed4052e17627b8e369b38ffa9ae31))
+* use "" as default profile if no awsProfile ([#1050](https://github.com/awslabs/service-workbench-on-aws/issues/1050)) ([863cb06](https://github.com/awslabs/service-workbench-on-aws/commit/863cb06588084ea3026b0dd08dbf71ee3f4ffb80))
+
+### [5.2.2](https://github.com/awslabs/service-workbench-on-aws/compare/v5.2.1...v5.2.2) (2022-09-02)
+
+
+### Bug Fixes
+
+* allow Guest users to log in ([#1031](https://github.com/awslabs/service-workbench-on-aws/issues/1031)) ([6072b4e](https://github.com/awslabs/service-workbench-on-aws/commit/6072b4e5c7dcb7ace0bcf1548c2d6bfb1921d29b))
+
+### [5.2.1](https://github.com/awslabs/service-workbench-on-aws/compare/v5.2.0...v5.2.1) (2022-09-01) 
+
+
+### Bug Fixes
+
+* appstream image version update ([#1022](https://github.com/awslabs/service-workbench-on-aws/issues/1022)) ([99880b3](https://github.com/awslabs/service-workbench-on-aws/commit/99880b3277d9c56948fc81cb6711669d8821f3ae))
+* cicd pipeline S3 config check fail  ([#1025](https://github.com/awslabs/service-workbench-on-aws/issues/1025)) ([21713f7](https://github.com/awslabs/service-workbench-on-aws/commit/21713f7b1b9749bdca67eaea7e334848acbe34bf))
+* dependabot resolution for got package ([#1008](https://github.com/awslabs/service-workbench-on-aws/issues/1008)) ([8619c6e](https://github.com/awslabs/service-workbench-on-aws/commit/8619c6e0aeaaa31346155115be64cd316fb43e22))
+* remove permission for Guest to list users ([#1028](https://github.com/awslabs/service-workbench-on-aws/issues/1028)) ([e88eca4](https://github.com/awslabs/service-workbench-on-aws/commit/e88eca466cbcf718b1d350f968e2fd45a376da8e))
 
 ### [5.2.0](https://github.com/awslabs/service-workbench-on-aws/compare/v5.1.1...v5.2.0) (2022-05-17)
 
