@@ -101,7 +101,7 @@ class EnvironmentResourceService extends Service {
       // the studies. Keep in mind that the existing code will allow the member account r/w access
       // to the study. Then, we further restrict access for the workspace when we create the
       // instance profile role policy.
-      await this.addToBucketPolicy(requestContext, studiesToAdd, memberAccountId);
+      // await this.addToBucketPolicy(requestContext, studiesToAdd, memberAccountId);
 
       // We want to track all the environments that are accessing the studies at the member account level
       const usage = await usageService.addUsage(requestContext, {
@@ -156,7 +156,7 @@ class EnvironmentResourceService extends Service {
       // We do the usage tracking calls, 20 at a time
       await processInBatches(studies, 20, processor);
 
-      await this.removeFromBucketPolicy(requestContext, studiesToRemove, memberAccountId);
+      // await this.removeFromBucketPolicy(requestContext, studiesToRemove, memberAccountId);
 
       // We want to track all the environments that are accessing the studies at the member account level
       const usage = await usageService.removeUsage(requestContext, {
