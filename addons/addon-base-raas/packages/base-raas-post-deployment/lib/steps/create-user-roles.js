@@ -39,21 +39,6 @@ const userRoleItems = [
     userType: 'INTERNAL',
   },
   {
-    id: 'researcher-pro',
-    description: 'Internal Researcher Pro',
-    userType: 'INTERNAL',
-  },
-  {
-    id: 'researcher-gpu',
-    description: 'Internal Researcher GPU',
-    userType: 'INTERNAL',
-  },
-  {
-    id: 'researcher-gpupro',
-    description: 'Internal Researcher GPU Pro',
-    userType: 'INTERNAL',
-  },
-  {
     id: 'external-researcher',
     description: 'External Researcher',
     userType: 'EXTERNAL',

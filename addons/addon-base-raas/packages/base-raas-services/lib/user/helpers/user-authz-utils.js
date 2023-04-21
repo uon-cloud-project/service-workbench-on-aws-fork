@@ -18,9 +18,6 @@ const { allow, deny } = require('@amzn/base-services/lib/authorization/authoriza
 
 function allowIfHasRole(requestContext, { action, resource }, allowedUserRoles) {
   const userRole = _.get(requestContext, 'principal.userRole');
-  if (userRole.includes('researcher') && _.includes(allowedUserRoles, 'researcher')){
-    return allow();
-  }
   if (!_.includes(allowedUserRoles, userRole)) {
     const resourceDisplayName = resource || 'resource';
     return deny(
